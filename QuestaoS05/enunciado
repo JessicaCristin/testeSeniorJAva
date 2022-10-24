@@ -1,0 +1,18 @@
+Implementar uma função que retorne uma string que apague todas as ocorrências 
+de uma substring dentro de uma string passada como parâmetro;
+Criar uma classe Limpa() que implemente a interface ILimpa. 
+
+interface ILimpa {
+	String limpar(String string, String substring);
+}
+
+Ao chamar o método limpar, deverá ser retornada a string passada como parâmetro 
+sem as ocorrências da substring passada como parâmetro.
+Ex.: string “O rato roeu a roupa do rei de roma”
+       substring: “ro”
+       retorno: “O rato eu a upa do rei de ma”
+
+Obs.: A pesquisa e montagem da nova string deverá ser feita manualmente pois 
+o objetivo é analisar a lógica do candidato e não seu conhecimento da api do java,
+portanto não será permitido o uso de qualquer método da classe String exceto charAt()
+e métodos de concatenação.

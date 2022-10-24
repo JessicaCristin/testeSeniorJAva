@@ -1,0 +1,51 @@
+Máquina de dinheiro. Trata-se de uma máquia que precisa calcular a 
+quantidade de diheiro que será dada de troco para uma operação financeira. 
+A rotina que deverá ser implementada será apenas a verificação das notas dadas 
+como troco.
+Para isso deverá ser criada uma classe MaquinaDinheiro() que implemente a 
+interface IMaquina:
+
+interface IMaquina {
+	List<Troco> montarTroco(double troco);
+} 
+
+O método montarTroco recebe um parâmetro double, que poderá no máximo ter 
+duas casas decimais, e então calculará quantas notas de dinheiro e quantas 
+moedas conseguirá para compor o troco. Cada tipo de nota ou moeda terá uma 
+determinada quantidade, e deverão estar emcapsulados na lista de Troco. 
+O sistema deverá usar a menor quantidade possível de notas e moedas possíveis. 
+Notas disponíveis: 100,50,20,10,5,2; 
+Moedas disponíveis: 1, 0.50, 0.25, 0.10, 0.05, 0.01;
+
+class Troco {
+	public enum ECedula {
+		NOTA100(100), NOTA50(50), NOTA20(20), NOTA10(10), NOTA5(5), NOTA2(2), MOEDA100(
+				1), MOEDA50(0.5), MOEDA25(0.25), MOEDA10(0.1), MOEDA5(0.05), MOEDA1(0.01);
+		ECedula(double valor) {
+			this.valor = valor;
+		}
+		private double valor;
+		public double getValor() {	return valor;}
+	}
+
+	private ECedula tipo;
+	private int quantidade;
+
+	public void adicionaQuantidade(int qtde) { quantidade += qtde;}
+
+	public Troco(ECedula tipo, int quantidade) {
+		super();
+		this.tipo = tipo;
+		this.quantidade = quantidade;
+	}
+	public ECedula getTipo() {	return tipo;}
+	public int getQuantidade() {	return quantidade;	}
+}
+
+Ex:
+a entrada é 125,15 e a saída é 
+  1 nota de 100     - Troco(ECedula.NOTA100,1);
+  1 nota de 20      - Troco(ECedula.NOTA20,1);
+  1 nota de 5       - Troco(ECedula.NOTA5,1);
+  1 moeda de 0.10   - Troco(ECedula.MOEDA10,1);
+  1 moeda de 0.05   - Troco(ECedula.MOEDA5,1);

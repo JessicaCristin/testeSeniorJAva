@@ -1,0 +1,33 @@
+Implementar cálculo de juros compostos sem usar a classe Math do java.
+
+Criar uma classe JurosCompostos que implemente a seguinte interface:
+
+public interface IJurosCompostos {
+	double calcularValorFinal(double valorInicial, double juros, int parcelas);
+}
+
+Fórmula de juros compostos:
+ValorFinal = ValorInicial x ( 1 + juros ) ^ parcelas
+
+Onde:
+ValorFinal = valor final calculado 
+ValorInicial = valor inicial do empréstimo
+juros = valor dos juros (100% = 1; 50% = 0,5; 12% = 0,12, ...)
+parcelas = número inteiro de parcelas
+
+Observações: 
+- Somente valores positivos serão informados nos parâmetros.
+- Os valores de entrada e retorno devem considerar apenas as duas primeiras 
+  casas decimais dos valores de entrada e de retorno. Exemplos: 
+    1.123456 -> 1.12
+    1.456789 -> 1.45
+  Importante: poderão ser informados valores com mais casas decimais nos parâmetros 
+  mas as casas além da segunda devem ser ignoradas.
+
+Exemplos de valores iniciais e valores finais.
+Para uma parcela com valor inicial 100,00 e taxa de juros mensal de 10% teríamos os seguintes resultados:
+
+		parcelas      valor final
+		   1            110,00 
+		   2            121,00 
+		   3            133,10

@@ -1,0 +1,18 @@
+Formatar um valor decimal sem usar formatador do java
+
+Criar um método que receba um número decimal (um double) com duas casas decimais 
+de precisão (garantido) e retorne uma String com o mesmo valor formatado para 
+aparecer vírgula como separador de decimais e ponto como separador de milhares.
+
+Para isso crie a classe Formatador que implemente a seguinte interface:
+
+public interface IFormatador {
+	String formatar(double num);
+}
+
+Observações: 
+- Somente serão passados números maiores ou iguais a zero.
+- O maior número passado será 999.999,99 .
+- O objetivo é verificar a capacidade de se programar uma rotina de decomposição numérica 
+  seguida de concatenação de caracteres, portanto não serão válidas soluções que usem
+  formatadores do java. 
