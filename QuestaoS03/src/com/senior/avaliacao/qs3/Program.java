@@ -5,7 +5,13 @@ public class Program {
 	public static void main(String[] args) {
 		ValidaProtocolo validaProtocolo = new ValidaProtocolo();
 		
-		validaProtocolo.validaProtocolo("12.3");
+		boolean resultado = validaProtocolo.validaProtocolo("040674-00");
+		
+		if(resultado) {
+			System.out.println("Valido");
+		}else {
+			System.out.println("invalido");
+		}
 	}
 
 }
