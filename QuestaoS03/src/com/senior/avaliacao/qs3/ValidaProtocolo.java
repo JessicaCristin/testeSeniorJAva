@@ -7,36 +7,57 @@ public class ValidaProtocolo implements IValidaProtocolo {
 
 	@Override
 	public boolean validaProtocolo(String protocolo) {
-		List<Integer> lista = new ArrayList<>();
-		lista = StringParaInt(formataValor(protocolo));
-		int tamanhoArray = lista.size();
-		int multiplicador = 2;
-		int multiplicando = 0;
-		int somatoriaDosNumeros = 0;
+		List<Integer> protocoloEmInt = new ArrayList();
+		int tamanhoProtocolo = protocolo.length();
+		int digito1Protocolo = Integer.parseInt(protocolo.substring(tamanhoProtocolo - 2, tamanhoProtocolo - 1));
+		int digito2Protocolo = Integer.parseInt(protocolo.substring(tamanhoProtocolo - 1));
 		int digito1 = 0;
 		int digito2 = 0;
 
-		for (int i = 0; i < lista.size(); i++) {
-			multiplicando = lista.get(i);
-			somatoriaDosNumeros += (multiplicador * multiplicando);
-			multiplicador++;
-		}
+		String protocoloSemDigito = retornaProtocoloSemDigito(protocolo);
+		String protocoloInvertido = reverse(protocoloSemDigito);
+		String protocoloFormatado = formataValor(protocoloInvertido);
+		protocoloEmInt = StringParaInt(protocoloFormatado);
 
-		digito1 = somatoriaDosNumeros / 11;
-		digito2 = (somatoriaDosNumeros + digito1) / 11;
+		digito1 = RetornaDigito(protocoloEmInt);
+		protocoloEmInt.add(0, digito1);
+		digito2 = RetornaDigito(protocoloEmInt);
 
-		if (digito1 == 10) {
-			digito1 = 0;
-		}
-		if (digito2 == 10) {
-			digito2 = 0;
-		}
-
-		if ((digito1 == lista.get(tamanhoArray -2)) && (digito1 == lista.get(tamanhoArray -1))) {
+		if ((digito1 == digito1Protocolo) && (digito2== digito2Protocolo)) {
 			return true;
 		}
 
 		return false;
+	}
+
+	public int RetornaDigito(List<Integer> valor) {
+		int multiplicador = 2;
+		int resultado = 0;
+
+		for (int i = 0; i < valor.size(); i++) {
+			resultado += multiplicador * valor.get(i);
+			multiplicador++;
+		}
+
+		return (resultado * 10) % 11;
+	}
+
+	public String retornaProtocoloSemDigito(String protocolo) {
+		String novoProtocolo = "";
+		int tamanhoProtocolo = protocolo.length();
+
+		novoProtocolo += protocolo.substring(0, tamanhoProtocolo - 2);
+
+		return novoProtocolo;
+	}
+
+	public String reverse(String original) {
+		String reversed = "";
+		for (int i = original.length() - 1; 0 <= i; i--) {
+			reversed += original.charAt(i);
+		}
+
+		return reversed;
 	}
 
 	public String formataValor(String valor) {
