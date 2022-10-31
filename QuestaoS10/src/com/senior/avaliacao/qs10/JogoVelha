@@ -1,0 +1,107 @@
+package com.senior.avaliacao.qs10;
+
+public class JogoDaVelha implements IJogoVelha {
+
+	@Override
+	public char verificaGanhador(char[][] tabuleiro) throws Exception {
+		char vencedor = '_';
+		int qtdPecasX = 0;
+		int qtdPecasO = 0;
+
+		// varre linhas
+		for (int i = 0; i < tabuleiro.length; i++) {
+			qtdPecasX = 0;
+			qtdPecasO = 0;
+			for (int j = 0; j < tabuleiro.length; j++) {
+
+				if ((tabuleiro[i][j] != 'X') && (tabuleiro[i][j] != 'O') && (tabuleiro[i][j] != '_'))
+					throw new IllegalArgumentException("Só são permitidos os seguintes caracteres: 'O', 'X' ou '_'");
+
+				// varre linha
+				if ((tabuleiro[i][j] == 'X'))
+					qtdPecasX++;
+
+				if ((tabuleiro[i][j] == 'O'))
+					qtdPecasO++;
+
+				if ((qtdPecasX == 3) && (vencedor != '_'))
+					throw new IllegalArgumentException("Error");
+				if ((qtdPecasX == 3) && (vencedor == '_'))
+					vencedor = 'X';
+
+				if ((qtdPecasO == 3) && (vencedor != '_'))
+					throw new IllegalArgumentException("Error");
+				if ((qtdPecasO == 3) && (vencedor == '_'))
+					vencedor = 'O';
+
+			}
+		}
+
+		// varre colunas
+		for (int i = 0; i < tabuleiro.length; i++) {
+			qtdPecasX = 0;
+			qtdPecasO = 0;
+			for (int j = 0; j < tabuleiro.length; j++) {
+				if ((tabuleiro[j][i] == 'X')) {
+					qtdPecasX++;
+				}
+				if ((tabuleiro[j][i] == 'O')) {
+					qtdPecasO++;
+				}
+
+				if ((qtdPecasX == 3) && (vencedor != '_'))
+					throw new IllegalArgumentException("Error");
+				if ((qtdPecasX == 3) && (vencedor == '_'))
+					vencedor = 'X';
+				if ((qtdPecasO == 3) && (vencedor != '_'))
+					throw new IllegalArgumentException("Error");
+				if ((qtdPecasO == 3) && (vencedor == '_'))
+					vencedor = 'O';
+
+			}
+		}
+
+		qtdPecasX = 0;
+		qtdPecasO = 0;
+
+		// varre diagonal invertida
+		for (int i = 0; i < tabuleiro.length; i++) {
+
+			if (tabuleiro[i][tabuleiro.length - 1 - i] == 'X')
+				qtdPecasX++;
+			if (tabuleiro[i][tabuleiro.length - 1 - i] == 'O')
+				qtdPecasO++;
+
+			if ((qtdPecasX == 3) && (vencedor != '_'))
+				throw new IllegalArgumentException("Error");
+			if ((qtdPecasX == 3) && (vencedor == '_'))
+				vencedor = 'X';
+			if ((qtdPecasO == 3) && (vencedor != '_'))
+				throw new IllegalArgumentException("Error");
+			if ((qtdPecasO == 3) && (vencedor == '_'))
+				vencedor = 'O';
+
+		}
+
+		qtdPecasX = 0;
+		qtdPecasO = 0;
+
+		for (int i = 0; i < tabuleiro.length; i++) {
+			if (tabuleiro[i][i] == 'X')
+				qtdPecasX++;
+			if (tabuleiro[i][i] == 'O')
+				qtdPecasO++;
+
+			if ((qtdPecasX == 3) && (vencedor != '_'))
+				throw new IllegalArgumentException("Error");
+			if ((qtdPecasX == 3) && (vencedor == '_'))
+				vencedor = 'X';
+			if ((qtdPecasO == 3) && (vencedor != '_'))
+				throw new IllegalArgumentException("Error");
+			if ((qtdPecasO == 3) && (vencedor == '_'))
+				vencedor = 'O';
+		}
+		return vencedor;
+	}
+
+}
