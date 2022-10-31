@@ -24,14 +24,14 @@ public class JogoDaVelha implements IJogoVelha {
 				if ((tabuleiro[i][j] == 'O'))
 					qtdPecasO++;
 
-				if ((qtdPecasX == 3) && (vencedor != '_'))
+				if ((qtdPecasX == 3) && (vencedor == 'O'))
 					throw new IllegalArgumentException("Error");
-				if ((qtdPecasX == 3) && (vencedor == '_'))
+				if ((qtdPecasX == 3) && (vencedor != 'O'))
 					vencedor = 'X';
 
-				if ((qtdPecasO == 3) && (vencedor != '_'))
+				if ((qtdPecasO == 3) && (vencedor == 'X'))
 					throw new IllegalArgumentException("Error");
-				if ((qtdPecasO == 3) && (vencedor == '_'))
+				if ((qtdPecasO == 3) && (vencedor != 'X'))
 					vencedor = 'O';
 
 			}
@@ -49,13 +49,14 @@ public class JogoDaVelha implements IJogoVelha {
 					qtdPecasO++;
 				}
 
-				if ((qtdPecasX == 3) && (vencedor != '_'))
+				if ((qtdPecasX == 3) && (vencedor == 'O'))
 					throw new IllegalArgumentException("Error");
-				if ((qtdPecasX == 3) && (vencedor == '_'))
+				if ((qtdPecasX == 3) && (vencedor != 'O'))
 					vencedor = 'X';
-				if ((qtdPecasO == 3) && (vencedor != '_'))
+				
+				if ((qtdPecasO == 3) && (vencedor == 'X'))
 					throw new IllegalArgumentException("Error");
-				if ((qtdPecasO == 3) && (vencedor == '_'))
+				if ((qtdPecasO == 3) && (vencedor != 'X'))
 					vencedor = 'O';
 
 			}
@@ -72,13 +73,13 @@ public class JogoDaVelha implements IJogoVelha {
 			if (tabuleiro[i][tabuleiro.length - 1 - i] == 'O')
 				qtdPecasO++;
 
-			if ((qtdPecasX == 3) && (vencedor != '_'))
+			if ((qtdPecasX == 3) && (vencedor == 'O'))
 				throw new IllegalArgumentException("Error");
-			if ((qtdPecasX == 3) && (vencedor == '_'))
+			if ((qtdPecasX == 3) && (vencedor != 'O'))
 				vencedor = 'X';
-			if ((qtdPecasO == 3) && (vencedor != '_'))
+			if ((qtdPecasO == 3) && (vencedor == 'X'))
 				throw new IllegalArgumentException("Error");
-			if ((qtdPecasO == 3) && (vencedor == '_'))
+			if ((qtdPecasO == 3) && (vencedor != 'X'))
 				vencedor = 'O';
 
 		}
@@ -92,13 +93,13 @@ public class JogoDaVelha implements IJogoVelha {
 			if (tabuleiro[i][i] == 'O')
 				qtdPecasO++;
 
-			if ((qtdPecasX == 3) && (vencedor != '_'))
+			if ((qtdPecasX == 3) && (vencedor == 'O'))
 				throw new IllegalArgumentException("Error");
-			if ((qtdPecasX == 3) && (vencedor == '_'))
+			if ((qtdPecasX == 3) && (vencedor != 'O'))
 				vencedor = 'X';
-			if ((qtdPecasO == 3) && (vencedor != '_'))
+			if ((qtdPecasO == 3) && (vencedor == 'X'))
 				throw new IllegalArgumentException("Error");
-			if ((qtdPecasO == 3) && (vencedor == '_'))
+			if ((qtdPecasO == 3) && (vencedor != 'O'))
 				vencedor = 'O';
 		}
 		return vencedor;
